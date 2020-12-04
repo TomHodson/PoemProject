@@ -1,5 +1,6 @@
 body {
   background: #581845; 
+  display: flex;
 }
 page {
   background: white;
@@ -14,23 +15,21 @@ page[size="A4"] {
 }
 
 #title {
-  margin: 20px auto 0 auto;
+  margin: 50px auto 20px auto;
   width: 500px;
   text-align: centre;
 }
 
 #authors {
-  margin: 20px auto 0 auto;
+  margin: 20px auto 20px auto;
   width: 500px;
-  text-align: left;
+  text-align: centre;
 }
 
-#poem {
-  margin: 0 auto;
-  width: 300px;
-  text-align : centre;
-  padding-top: 100px;
-/*   border-style: dotted; */
+#addresses {
+  margin: 20px auto 20px auto;
+  width: 500px;
+  text-align: centre;
 }
 
 #wrapper {
@@ -49,5 +48,5 @@ page[size="A4"] {
   flex: 1 0 200px;
   margin-right: 75px;
   margin-left: 15px;
-  text-align: justify;
+  text-align: right;
 }
