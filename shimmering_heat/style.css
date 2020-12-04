@@ -1,0 +1,20 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+  position:fixed; 
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+#poem-div {
+  border-style: dotted;
+  width: 300px;
+  height: 500px;
+  z-index: 10;
+  margin: 0 auto;
+}
+
