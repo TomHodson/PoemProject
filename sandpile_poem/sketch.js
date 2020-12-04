@@ -59,6 +59,11 @@ function drawGrid() {
   }
 }
 
+let myFont;
+function preload() {
+  myFont = loadFont('OfficeCodePro-Light.otf');
+}
+
 function setup() {
   //createCanvas(800, 400);
   createCanvas(windowWidth, windowHeight);
@@ -68,6 +73,7 @@ function setup() {
   frameRate(5);
   textAlign(CENTER);
   stroke(0);
+  textFont(myFont);
   
   gridW = ceil(width / cw);
   gridH = ceil(height / ch);
@@ -112,7 +118,7 @@ let timer = 0
 let ti, tj;
 
 function draw() {
-  background(270, 90, 90, 100);
+  background('#531d5c');
   //drawGrid(); //draw a grid
   
   //add to the cell where we're holding the mouse buttong
