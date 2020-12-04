@@ -27,6 +27,11 @@ div.flex_right {
     justify-content: flex-end;
 }
 
+div.leftpad {
+    width: 0pc;
+    flex: 1 1 auto;
+}
+
 p#info {
     color: #ffb1b1;
     font-size: 100%;
@@ -34,9 +39,8 @@ p#info {
     font-family: Arial, Helvetica, sans-serif;
     /* line-height: 2 ; */
     margin-right: 50px;
-    min-width: 450px;
-    max-width: 400px;
-    flex: 1 1 auto;
+    width: 400px;
+    flex: 0 1 auto;
 }
 
 /* a:hover {
