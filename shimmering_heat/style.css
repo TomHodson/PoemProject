@@ -1,9 +1,8 @@
-html, body {
+body {
   background: rgb(255,196,69);
-  background: linear-gradient(90deg, rgba(255,196,69,1) 0%, rgba(222,128,80,1) 8%, rgba(183,74,87,1) 21%, rgba(138,43,89,1) 35%, rgba(88,31,91,1) 61%);  
-    
+  background: linear-gradient(90deg, rgba(255,196,69,1) 0%, rgba(222,128,80,1) 8%, rgba(183,74,87,1) 21%, rgba(138,43,89,1) 35%, rgba(88,31,91,1) 61%);
   margin: 0;
-  padding: 0;
+  padding: 50px;
 }
 canvas {
   display: block;
@@ -13,11 +12,30 @@ canvas {
   z-index: -1;
 }
 
-#poem-div {
-  border-style: dotted;
-  width: 300px;
-  height: 500px;
+#title {
   z-index: 10;
+  width: 400px;
   margin: 0 auto;
 }
+
+h1 {  
+  font-size: 30px;
+  color: white;
+}
+
+#poem-div {
+  width: 400px;
+  height: 500px;
+  z-index: 10;
+  margin: 10px auto;
+}
+
+#hidden_poem {
+  width: 400px;
+  height: 500px;
+  z-index: 10;
+  margin: 10px auto;
+  color: white;
+}
+
 

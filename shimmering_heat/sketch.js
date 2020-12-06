@@ -1,7 +1,7 @@
-let background_color = "#59115c";
+let background_color = "#59115c00";
 let textcolor = '#FFFFFF'
 
-let poem_div, words, nwords, br;
+let poem_div, hidden_poem, words, nwords, br;
 
 
 let position = 0;
@@ -11,6 +11,7 @@ let line = 0;
 let word = 0;
 let npoem = 0;
 let next;
+
 
 
 
@@ -35,13 +36,19 @@ let poem = [
  'create their own unique and gentle orders.'];
 
 function setup() {
+  select('#hidden_poem').style('display', 'none');  
+    
   createCanvas(windowWidth, windowHeight);
+  background_color = color(background_color);
+  background_color.setAlpha(0);
   background(background_color);
   
   //frameRate(20); //Only update once every few seconds
   colorMode(HSL);
   poem = select('#poem-div').elt;
   poem.appendChild(document.createElement('br'));
+  hidden_poem = select('#hidden_poem').elt;
+  nwords = hidden_poem.childNodes.length;
 }
 
 function windowResized() {
@@ -50,22 +57,27 @@ function windowResized() {
 }
 
 function draw() {
-  frameRate(20);
-  
+  background(background_color);  
+    
+  if(millis() < 4000) {
+      frameRate(30);
+      background_color.setAlpha(255 * min(millis() / 4000, 1));
+  }
+  else {
+  frameRate(10);
   //add line breaks for the sonnet lines
   if(word == 0 && (line == 4 || line == 9 || line === 14 || line === 17)) {
     next = document.createElement('br');
   }
   else {
-    next = document.createElement("span");
-    next.innerHTML = "word ";
+    next = hidden_poem.childNodes[position].cloneNode(true);
     print(position, next)
     next.style.color = textcolor;
   }
   poem.appendChild(next);
   
   //if there's a line break, increment the line number and reset the word number to 0
-  if(next.nodeName === 'BR') {
+  if(next.nodeName === 'BR' | word > 10) {
     line += 1;
     word = 0;
   }
@@ -100,4 +112,5 @@ function draw() {
     position = (position + 1) % nwords;
   }
   words_so_far += 1;
+}
 }
