@@ -1,8 +1,9 @@
 body {
-    background: rgb(255,196,69);
-    background: linear-gradient(90deg, rgba(255,196,69,1) 0%, rgba(222,128,80,1) 8%, rgba(183,74,87,1) 21%, rgba(138,43,89,1) 35%, rgba(88,31,91,1) 61%);
   font-family: serif;
   padding-top: 30px;
+  background: rgb(206,100,84,);
+    background: linear-gradient(0deg, rgba(252,176,69,1) 0%, rgba(206,100,84,1) 00%, rgba(144,46,89,1) 70%, rgba(83,29,92,1) 100%);
+    
 }
 page {
   background: white;
