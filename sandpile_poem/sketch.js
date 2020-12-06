@@ -1,7 +1,7 @@
-let background_color = "#59115c";
+let background_color = "#59115c00";
 
 let colors = [
-  '#581845',
+  '#58184500',  
   '#900C3F',
 '#C70039',
 '#FF5733',
@@ -69,7 +69,7 @@ function mapOverCells(f) {
 
 
 function draw() {
-  background('#531d5c');
+  background(background_color);
   
   //add to the cell where we're holding the mouse buttong
   mouseclicks.map((c) => sandpiles[floor(c[0] / cw)][floor(c[1] / ch)] += 1);
