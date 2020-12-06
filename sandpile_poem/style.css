@@ -1,13 +1,15 @@
 html, body {    
   margin: 0;
   padding: 0;
-  height: 100%;
+  /* height: 100%; */
 }
+
 body {
-    background: rgb(255,196,69);
-    background: linear-gradient(90deg, rgba(255,196,69,1) 0%, rgba(222,128,80,1) 8%, rgba(183,74,87,1) 21%, rgba(138,43,89,1) 35%, rgba(88,31,91,1) 61%);
-  display: flex;
+  background: rgb(206,100,84) ;
+  background: linear-gradient(0deg, rgba(252,176,69,1) 0%, rgba(206,100,84,1) 00%, rgba(144,46,89,1) 70%, rgba(83,29,92,1) 100%);
+  
 }
+
 canvas {
   display: block;
   position:fixed; 
@@ -16,8 +18,9 @@ canvas {
   z-index: -1;
 }
 #poem {
-   margin: auto auto;
-   width: 300px;
-   height: 500px;
-   color: white;
+  font-family: Arial, Helvetica, sans-serif;
+   margin: 150px auto;
+   width: 400px;
+   height: 460px;
+   color: #ffb1b1; 
 }

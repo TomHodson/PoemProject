@@ -31,6 +31,8 @@ function windowResized() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  background_color = color(background_color);
+  background_color.setAlpha(0);
   background(background_color);
     
   colorMode(HSB, 360, 100, 100, 100);
@@ -69,8 +71,15 @@ function mapOverCells(f) {
 
 
 function draw() {
-  background(background_color);
   
+  background(background_color);  
+    
+  if(millis() < 1500) {
+      frameRate(30);
+      background_color.setAlpha(255 * min(millis() / 4000, 1));
+  }
+  else {
+    frameRate(5);
   //add to the cell where we're holding the mouse buttong
   mouseclicks.map((c) => sandpiles[floor(c[0] / cw)][floor(c[1] / ch)] += 1);
   
@@ -108,6 +117,7 @@ mapOverCells(function(i, j, x, y) {
   let tmp = sandpiles;
   sandpiles = nextpiles;
   nextpiles = tmp;
+}
 }
 
 function mouseClicked() {
