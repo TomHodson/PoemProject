@@ -3,22 +3,22 @@ body {
 /*     background: linear-gradient(90deg, rgba(83,29,91,1) 0%, rgba(144,45,89,1) 7%, rgba(199,91,85,1) 11%, rgba(232,149,75,1) 15%, rgba(254,199,68,1) 21%, rgba(232,149,75,1) 26%, rgba(199,91,85,1) 34%, rgba(144,45,89,1) 64%, rgba(83,29,91,1) 89%); */
 
     
-    padding: 120px;
+    padding: min(7.5em, 3%);
     /* padding-left: 20%; */
     
     color: #ffb1b1;
     font-family: 'Didot', Times, serif;
-    font-size: 17px;
+    font-size: 1em;
     background: rgb(206,100,84,);
     background: linear-gradient(0deg, rgba(252,176,69,1) 0%, rgba(206,100,84,1) 00%, rgba(144,46,89,1) 70%, rgba(83,29,92,1) 100%);
     
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 4em;
     font-weight: 700; 
     text-shadow: 2px 2px #531d5c;
-    margin: 0px;
+    margin: 0;
   
 }
 

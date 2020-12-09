@@ -2,7 +2,7 @@ body {
   font-family: serif;
   padding-top: 30px;
   background: rgb(206,100,84,);
-    background: linear-gradient(0deg, rgba(252,176,69,1) 0%, rgba(206,100,84,1) 00%, rgba(144,46,89,1) 70%, rgba(83,29,92,1) 100%);
+background: linear-gradient(0deg, rgba(252,176,69,1) 0%, rgba(206,100,84,1) 00%, rgba(144,46,89,1) 70%, rgba(83,29,92,1) 100%);
     
 }
 page {
@@ -19,9 +19,14 @@ page[size="A4"] {
 }
 
 #title {
-  margin: 50px auto 20px auto;
-  width: 500px;
-  text-align: centre;
+/*   margin: 50px auto 20px auto; */
+  width: 100%;
+  display: flex;
+}
+
+h1 {
+    margin: auto;
+    width: 500px;
 }
 
 #authors {

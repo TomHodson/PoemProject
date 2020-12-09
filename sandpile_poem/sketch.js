@@ -1,6 +1,11 @@
-let background_color = "#59115c00";
+const FADE_TIME = 8000; //in milliseconds
+const START_DELAY = 1500;
+const SAND_FRAMERATE = 5;
 
-let colors = [
+const CH = 7; //cell height in pixels
+const CW = 7; //cell width
+
+const COLORS = [
   '#58184500',  
   '#900C3F',
 '#C70039',
@@ -8,29 +13,46 @@ let colors = [
   '#FFC300',
 ];
 
+let background_color = "#59115c";
 
-let sandpiles, nextpiles;
 
-let ch = 7; //cell height
-let cw = 7; //cell width
 
 let cells;
 let gridW, gridH;
-
+let sandpiles, nextpiles;
 let mouseclicks = [];
+let timeouts = [];
 
-// let myFont;
-// function preload() {
-//   myFont = loadFont('OfficeCodePro-Light.otf');
-// }
+function addRight() {append(mouseclicks, [windowWidth*random(0.8,0.95), windowHeight*random(0.2,0.8)]); print(mouseclicks);}
+function addBottom() {append(mouseclicks, [windowWidth*random(0.2,0.8), windowHeight*random(0.8,0.95)]); print(mouseclicks);}
+
+function setupSandpiles() {
+  gridW = ceil(width / CW);
+  gridH = ceil(height / CH);
+    
+  sandpiles = new Array(gridW).fill().map(i => new Array(gridH).fill(0));
+  nextpiles = new Array(gridW).fill().map(i => new Array(gridH).fill(0));
+  touched = new Array(gridW).fill().map(i => new Array(gridH).fill(0));
+    
+  mouseclicks = [];
+  timeouts.forEach(x => clearTimeout(x));
+  timeouts = [];
+    
+  append(timeouts, setTimeout(addRight, 1000));
+  append(timeouts, setTimeout(addRight, 4000));
+  append(timeouts, setTimeout(addBottom, 10000));
+}
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  setupSandpiles();
   background(background_color);
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  setupSandpiles();
+  
   background_color = color(background_color);
   background_color.setAlpha(0);
   background(background_color);
@@ -39,51 +61,35 @@ function setup() {
   noStroke();
   ellipseMode(RADIUS);
   frameRate(5);
-//   textAlign(CENTER);
   stroke(0);
-//   textFont(myFont);
-  
-  gridW = ceil(width / cw);
-  gridH = ceil(height / ch);
-  
-  sandpiles = new Array(gridW).fill().map(i => new Array(gridH).fill(0));
-  nextpiles = new Array(gridW).fill().map(i => new Array(gridH).fill(0));
-  touched = new Array(gridW).fill().map(i => new Array(gridH).fill(0));
-
-  let h = min(windowHeight, 400);
-  append(mouseclicks, [windowWidth/1.7, h]);
-
 }
 
 
 //give this a function of (i,j,x,y) and it'll execute it for all the cells
 function mapOverCells(f) {
-    let x = 0.5 * cw;
+    let x = 0.5 * CW;
     for(let i = 0; i < gridW; i++) {
-      let y = 0.5 * ch;
+      let y = 0.5 * CH;
       for(let j = 0; j < gridH; j++) {
         f(i,j, x, y);
-        y += ch; 
+        y += CH; 
     }
-  x += cw; 
+  x += CW; 
   }
 }
 
-
 function draw() {
-  
-  background(background_color);  
+  if(millis() < FADE_TIME) {background_color.setAlpha(255 * min(millis() / FADE_TIME, 1));}
+  background(background_color); 
     
-  if(millis() < 1500) {
-      frameRate(30);
-      background_color.setAlpha(255 * min(millis() / 4000, 1));
-  }
+  //delay starting the sandpiles for a bit and keep the framerate high to get a smooth animation at the begining
+  if(millis() < START_DELAY) {frameRate(30);}
   else {
-    frameRate(5);
-  //add to the cell where we're holding the mouse buttong
-  mouseclicks.map((c) => sandpiles[floor(c[0] / cw)][floor(c[1] / ch)] += 1);
+  frameRate(SAND_FRAMERATE);
   
-
+  //add to the cell where we're holding the mouse buttong
+  mouseclicks.map(c => sandpiles[floor(c[0] / CW)][floor(c[1] / CH)] += 1);
+  
   noStroke();
   mapOverCells(function(i, j, x, y) {
     //need to do the copy now before going through the loop again to modify
@@ -92,10 +98,10 @@ function draw() {
     //draw the circles
     let f = sandpiles[i][j];
     if(f > 0) {
-        let c = colors[(f-1) % 4];
+        let c = COLORS[(f-1) % 4];
         fill(c);  
-        ellipse(x,y,cw/1.5,ch/1.5);
-        //rect(x,y,cw,ch);
+        ellipse(x,y, CW/1.5,CH/1.5);
+        //rect(x,y,CW,CH);
     }
   })
 
