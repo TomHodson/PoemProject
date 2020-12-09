@@ -2,3 +2,17 @@ body {
     background: rgb(252,176,69);
     background: linear-gradient(0deg, rgba(252,176,69,1) 0%, rgba(206,100,84,1) 00%, rgba(144,46,89,1) 70%, rgba(83,29,92,1) 100%);
 }
+
+#bottom_nav_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#right_nav {
+    flex: 1 1 auto;
+    text-align:right;
+}
+
+#left_nav {
+    flex: 1 1 auto;
+}
