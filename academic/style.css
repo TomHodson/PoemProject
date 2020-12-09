@@ -9,10 +9,10 @@ body {
 page {
   background: white;
   display: block;
-  margin: 30px auto;
+  margin: 20px auto;
   margin-bottom: 0.5cm;
   box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 page[size="A4"] {  
@@ -70,11 +70,6 @@ img {
    margin: 20px auto 20px auto;
 }
 
-#again {
-  margin: 20px auto 20px auto;
-  width: 100px;
-  text-align: justify;
-}
 
 a {
  cursor: pointer;
@@ -85,5 +80,5 @@ a {
 
 #bottom_nav_container {
     width: 300px;
-    margin: 30px auto;
+    margin: 20px auto;
 }
