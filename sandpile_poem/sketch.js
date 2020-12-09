@@ -6,16 +6,14 @@ const CH = 7; //cell height in pixels
 const CW = 7; //cell width
 
 const COLORS = [
-  '#58184500',  
-  '#900C3F',
+'#58184500',  
+'#900C3F',
 '#C70039',
 '#FF5733',
-  '#FFC300',
+'#FFC300',
 ];
 
 let background_color = "#59115c";
-
-
 
 let cells;
 let gridW, gridH;
@@ -23,8 +21,8 @@ let sandpiles, nextpiles;
 let mouseclicks = [];
 let timeouts = [];
 
-function addRight() {append(mouseclicks, [displayWidth*random(0.8,0.95), displayHeight*random(0.2,0.8)]); print(mouseclicks);}
-function addBottom() {append(mouseclicks, [displayWidth*random(0.2,0.8), displayHeight*random(0.8,0.95)]); print(mouseclicks);}
+function addRight() {append(mouseclicks, [windowWidth*random(0.8,0.95), windowHeight*random(0.2,0.8)]); print(mouseclicks);}
+function addBottom() {append(mouseclicks, [windowWidth*random(0.2,0.8), windowHeight*random(0.8,0.95)]); print(mouseclicks);}
 
 function setupSandpiles() {
   gridW = ceil(width / CW);
@@ -44,13 +42,13 @@ function setupSandpiles() {
 }
 
 function windowResized() {
-  resizeCanvas(displayWidth, displayHeight);
+  resizeCanvas(windowWidth, windowHeight);
   setupSandpiles();
   background(background_color);
 }
 
 function setup() {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(windowWidth, windowHeight);
   setupSandpiles();
   
   background_color = color(background_color);

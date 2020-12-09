@@ -6,11 +6,8 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  padding: 50px;
-  padding-top: 10%;
-    
+  padding: 0;
   color: white;
-  min-height: 100%;
   width: 100%;
 }
 canvas {
@@ -24,8 +21,9 @@ canvas {
 .container {
     z-index: 10;
     width: 350px;
-    height: 500px;
-    margin: 0 auto;
+    margin: 10% auto 0 auto;
+    
+    font-size: 1em;
 }
 
 a {
@@ -35,17 +33,34 @@ a {
 }
 
 #poem-div {
-/*   width: 400px; */
-/*   height: 500px; */
-/*   z-index: 10; */
   margin: 0 auto;
 }
 
-#hidden_poem {
-/*   width: 400px; */
-/*   height: 500px; */
-/*   z-index: 10; */
-/*   margin: 0 auto; */
+#info_para {
+   font-size: 1em;
+   line-height: 150%;
+    
+    display: block;
+    position: fixed;
+    width: 400px;
+    height: 460px;
+    top: 0;
+    left: 50%;
+    margin-top: 10%;
+    margin-left: -200px; /* Negative half of width. */
+    z-index: 0;
+}
+
+@media only screen and (max-width: 480px) {
+.container {
+    width: 80%;
+    font-size: 0.9em;
+}
+    
+#info_para {
+    width: 80%;
+    font-size: 0.9em;
+ }
 }
 
 span, hr {
@@ -79,32 +94,4 @@ span, hr {
 @-ms-keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
-}
-
-
-#info_para {
-  font-family: Arial, Helvetica, sans-serif;
-   color: white;
-   font-size: 1em;
-   line-height: 150%;
-    
-    display: block;
-    position: fixed;
-    width: 400px;
-    height: 460px;
-    top: 0;
-    left: 50%;
-    margin-top: 10%;
-    margin-left: -200px; /* Negative half of width. */
-    z-index: 0;
-}
-
-@media only screen and (max-width: 480px) {
-    
-#info_para {
-    width: 80%;
-    margin-left: -40%;
-    margin-top: 10%;
-/*     font-size: 5vw; */
- }
 }

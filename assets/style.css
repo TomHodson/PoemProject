@@ -2,27 +2,29 @@ html,
 body {
   margin: 0;
   padding: 0;
-/*   box-sizing: border-box; */
 }
 
 html {
   min-height: 100%;
-  width: 100%;
+  min-width: 100%;
 /*   position:relative; */
 }
 
 body {
     min-height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 7.5em;    
+    height:100%
+    width: 100%;   
     color: #ffb1b1;
     font-family: Arial, Helvetica, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 h1 {
     font-family: 'Didot', Times, serif;
-    font-size: 5em;
+    font-size: 4em;
     font-weight: 700; 
     text-shadow: 2px 2px #531d5c;
     margin: 0;
@@ -31,7 +33,7 @@ h1 {
 a {
     color: #ffb1b1;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.2em;
     line-height: 150%;
 }
 
@@ -39,25 +41,51 @@ p {
     color: #ffb1b1;
     font-style: italic;
     margin-top:0px;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
 .indented {
     margin-left: 20px;
 }
 
-#imperial_logo {
-    width: 200px;
-    padding: 0 10px 10px 0;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+
+.content {
+    flex: 1 0 auto;
+    width: 60%;
+    margin-left: 7.5em;
+    margin-top: 7.5em; 
 }
 
-/* @media only screen and (max-width: 700px) {
-    #imperial_logo { 
-        width: 30%; 
-        padding: 0 2% 2% 0;
+#logo_container {
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#imperial_logo {
+    flex: 0 0 200px;
+    width: 200px;
+    padding: 0 10px 10px 0;
+}
+
+ @media only screen and (max-width: 700px) {
+    .content {
+        margin-left: 10%;
+        margin-top: 10%; 
     }
-} */
+     
+     #imperial_logo { 
+        flex: 0 0 30%;
+        width: 30%; 
+        padding: 0 0 0 0;
+    }
+     h1 { font-size: 3em;}
+     a, p { font-size: 1em;}
+}
+
+ @media only screen and (max-width: 500px) {
+      h1 { font-size: 2em;}
+     a, p { font-size: 1em;}
+}
 

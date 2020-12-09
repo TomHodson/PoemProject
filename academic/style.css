@@ -2,7 +2,6 @@ html {min-height: 100%;}
 
 body {
   min-height: 100%;  
-    
   font-family: serif;
   padding-top: 30px;    
 }
@@ -15,13 +14,13 @@ page {
   box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
   padding-top: 30px;
 }
+
 page[size="A4"] {  
   width: 21cm;
   height: 29.7cm; 
 }
 
 #title {
-/*   margin: 50px auto 20px auto; */
   text-align: center;
 }
 
@@ -79,4 +78,12 @@ img {
 
 a {
  cursor: pointer;
+ color: black;
+ text-decoration: none;
+ 
+}
+
+#bottom_nav_container {
+    width: 300px;
+    margin: 30px auto;
 }
