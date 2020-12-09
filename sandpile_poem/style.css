@@ -26,7 +26,8 @@ canvas {
 #poem {
   font-family: Arial, Helvetica, sans-serif;
    height: 460px;
-   color: #ffb1b1; 
+/*    color: #ffb1b1;  */
+   color: white;
     
     display: block;
     position: fixed;

@@ -1,6 +1,6 @@
-const FADE_TIME = 8000; //in milliseconds
-const START_DELAY = 1500;
-const SAND_FRAMERATE = 5;
+const FADE_TIME = 30000; //in milliseconds
+const START_DELAY = 3000;
+const SAND_FRAMERATE = 10;
 
 const CH = 7; //cell height in pixels
 const CW = 7; //cell width
@@ -38,9 +38,9 @@ function setupSandpiles() {
   timeouts.forEach(x => clearTimeout(x));
   timeouts = [];
     
-  append(timeouts, setTimeout(addRight, 1000));
-  append(timeouts, setTimeout(addRight, 4000));
-  append(timeouts, setTimeout(addBottom, 10000));
+  append(timeouts, setTimeout(addRight, START_DELAY));
+  append(timeouts, setTimeout(addRight, START_DELAY + 4000));
+  append(timeouts, setTimeout(addBottom, START_DELAY + 10000));
 }
 
 function windowResized() {
