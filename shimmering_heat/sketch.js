@@ -1,3 +1,7 @@
+const FADE_TIME = 30000; //in milliseconds
+const START_DELAY = 1000;
+const GEN_FRAMERATE = 10;
+
 let background_color = "#59115c00";
 let textcolor = '#FFFFFF'
 
@@ -12,28 +16,6 @@ let word = 0;
 let npoem = 0;
 let next;
 
-
-
-
-let poem = [
- '', 
- 'There’s chaos in the shimmering heat,',
- 'All jives and jostles, structures melt and',
- 'Order boils until absence is complete,',
- 'Of pattern in the scorching shifting sand.',
- '',
- 'While bitter, on the other side, jutting',
- 'Great crystal castles. Lattice works of ice.',
- 'Their shear edges almost touching, cutting',
- 'Cleaving space apart, to each a separate slice.',
- '',
- 'It’s in between that pattern start to dance,',
- 'merging melting bodies, all together. ',
- 'Hypnotic orchestras dictate their trance. ',
- 'Connected through some esoteric aether.',
- '',
- 'These littles worlds found only at the borders',
- 'create their own unique and gentle orders.'];
 
 function setup() {
   select('#hidden_poem').style('display', 'none');  
@@ -57,14 +39,13 @@ function windowResized() {
 }
 
 function draw() {
-  background(background_color);  
+  if(millis() < FADE_TIME) {background_color.setAlpha(255 * min(millis() / FADE_TIME, 1));}
+  background(background_color); 
     
-  if(millis() < 4000) {
-      frameRate(30);
-      background_color.setAlpha(255 * min(millis() / 4000, 1));
-  }
+  //delay starting the sandpiles for a bit and keep the framerate high to get a smooth animation at the begining
+  if(millis() < START_DELAY) {frameRate(30);}
   else {
-  frameRate(10);
+  frameRate(GEN_FRAMERATE);
   //add line breaks for the sonnet lines
   if(word == 0 && (line == 4 || line == 9 || line === 14 || line === 17)) {
     next = document.createElement('br');
