@@ -34,8 +34,10 @@ function swap(arr, i, j) {
   arr.insertBefore(l[b], l[a]); // move l[a] to before l[n] 
 }
 
+let timeouts = []
+
 function setup() {
-  frameRate(1); //Only update once every few seconds
+  frameRate(3); //Only update once every few seconds
   
   poem_div = select('#poem');
   
@@ -47,7 +49,16 @@ function setup() {
   nwords = poem_div.elt.childNodes.length;
   print('Number of words in the poem: ', nwords);
   
-  //noLoop();
+  function start() {
+      loop(); 
+      timeouts.forEach(x => clearTimeout(x));
+      append(timeouts, setTimeout(noLoop, 5000));
+  }
+    
+  again = select('#again');
+  again.mouseClicked(start);
+  start();
+    
 }
 
 function draw() {

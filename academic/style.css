@@ -1,10 +1,12 @@
+html {min-height: 100%;}
+
 body {
-  font-family: serif;
-  padding-top: 30px;
-  background: rgb(206,100,84,);
-background: linear-gradient(0deg, rgba(252,176,69,1) 0%, rgba(206,100,84,1) 00%, rgba(144,46,89,1) 70%, rgba(83,29,92,1) 100%);
+  min-height: 100%;  
     
+  font-family: serif;
+  padding-top: 30px;    
 }
+
 page {
   background: white;
   display: block;
@@ -20,28 +22,32 @@ page[size="A4"] {
 
 #title {
 /*   margin: 50px auto 20px auto; */
-  width: 100%;
-  display: flex;
+  text-align: center;
 }
 
 h1 {
-    margin: auto;
-    width: 500px;
+/*     text-align: center; */
 }
 
 #authors {
   margin: 20px auto 20px auto;
-  width: 500px;
-  text-align: centre;
+/*   width: 500px; */
+  text-align: center;
 }
 
 #addresses {
   margin: 20px auto 20px auto;
-  width: 500px;
-  text-align: centre;
+/*   width: 500px; */
+  text-align: center;
 }
 
-#wrapper {
+#abstract {
+  margin: 20px auto 20px auto;
+  width: 500px;
+  text-align: justify;
+}
+
+.wrapper {
   display: flex;
   justify-content: center
 }
@@ -58,4 +64,19 @@ h1 {
   margin-right: 75px;
   margin-left: 15px;
   text-align: right;
+}
+
+img {
+/*     width: 200px; */
+   margin: 20px auto 20px auto;
+}
+
+#again {
+  margin: 20px auto 20px auto;
+  width: 100px;
+  text-align: justify;
+}
+
+a {
+ cursor: pointer;
 }
