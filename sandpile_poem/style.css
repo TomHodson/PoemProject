@@ -1,13 +1,18 @@
+html {
+  min-height: 100%;
+  position:relative;
+}
+
 html, body {    
   margin: 0;
   padding: 0;
-  /* height: 100%; */
 }
 
 body {
+  height: 100%;
+  width: 100%;
   background: rgb(206,100,84) ;
-  background: linear-gradient(0deg, rgba(252,176,69,1) 0%, rgba(206,100,84,1) 00%, rgba(144,46,89,1) 70%, rgba(83,29,92,1) 100%);
-  
+  background: linear-gradient(0deg, rgba(252,176,69,1) 0%, rgba(206,100,84,1) 00%, rgba(144,46,89,1) 70%, rgba(83,29,92,1) 100%);  
 }
 
 canvas {
@@ -17,10 +22,28 @@ canvas {
   left:0;
   z-index: -1;
 }
+
 #poem {
   font-family: Arial, Helvetica, sans-serif;
-   margin: 150px auto;
-   width: 400px;
    height: 460px;
    color: #ffb1b1; 
+    
+    display: block;
+    position: fixed;
+    width: 400px;
+    height: 460px;
+    top: 0;
+    left: 50%;
+    margin-top: 10%;
+    margin-left: -200px; /* Negative half of width. */
+    z-index: 0;
+}
+
+@media only screen and (max-width: 480px) {
+#poem {
+    width: 80%;
+    margin-left: -40%;
+    margin-top: 10%;
+/*     font-size: 5vw; */
+ }
 }
