@@ -124,6 +124,15 @@ mapOverCells(function(i, j, x, y) {
 }
 }
 
-function mouseClicked() {
- append(mouseclicks, [mouseX, mouseY]);
-}
+// function mouseClicked() {
+//  append(mouseclicks, [mouseX, mouseY]);
+// }
+
+// function touchEnded() {
+//   append(mouseclicks, [mouseX, mouseY]);
+//   //return false;
+// }
+
+ function mouseReleased() {
+  append(mouseclicks, [mouseX, mouseY]);
+ }
