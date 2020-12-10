@@ -37,6 +37,10 @@ a {
   margin: 0 auto;
 }
 
+#hidden_poem {
+  margin: 1em auto;
+}
+
 #info_para {
    font-size: 1em;
    line-height: 150%;
